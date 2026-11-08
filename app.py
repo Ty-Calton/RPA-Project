@@ -75,7 +75,7 @@ def get_order_data(invoice_num, filename, directory = directory):
     order_data['CustomerAddress2'] = f'{selected_sheet['C17'].value}, {selected_sheet['C18'].value} {str(selected_sheet['C19'].value)}'
     if Unit_Number0 != None:
         order_data['Price0'] = (product_prices[Unit_Number0])
-        order_data['Quantity0'] = selected_sheet['C24'].value
+        order_data['Quantity0'] = str(selected_sheet['C24'].value)
         order_data['Amount0_Raw'] = order_data['Price0'] * order_data['Quantity0']
         order_data['Amount0'] =     f'${order_data['Amount0_Raw']:,.2f}'
         order_data['Description0'] = product_description[Unit_Number0]
@@ -84,7 +84,7 @@ def get_order_data(invoice_num, filename, directory = directory):
 
     if Unit_Number1 != None:
         order_data['Price1'] = (product_prices[Unit_Number1])
-        order_data['Quantity1'] = selected_sheet['C25'].value
+        order_data['Quantity1'] = str(selected_sheet['C25'].value)
         order_data['Amount1_Raw'] = order_data['Price1'] * order_data['Quantity1']
         order_data['Amount1'] =   f'${order_data['Amount1_Raw']:,.2f}'
         order_data['Description1'] = product_description[Unit_Number1]
@@ -93,7 +93,7 @@ def get_order_data(invoice_num, filename, directory = directory):
 
     if Unit_Number2 != None:
         order_data['Price2'] = (product_prices[Unit_Number2])  #The Problem is that this is a null value currently
-        order_data['Quantity2'] = selected_sheet['C26'].value
+        order_data['Quantity2'] = str(selected_sheet['C26'].value)
         order_data['Amount2_Raw'] = order_data['Price2'] * order_data['Quantity2']
         order_data['Amount2'] =   f'${order_data['Amount2_Raw']:,.2f}'
         order_data['Description2'] = product_description[Unit_Number2]
@@ -102,7 +102,7 @@ def get_order_data(invoice_num, filename, directory = directory):
 
     if Unit_Number3 != None:
         order_data['Price3'] = (product_prices[Unit_Number3])
-        order_data['Quantity3'] = selected_sheet['C27'].value
+        order_data['Quantity3'] = str(selected_sheet['C27'].value)
         order_data['Amount3_Raw'] = order_data['Price3'] * order_data['Quantity3']
         order_data['Amount3'] =   f'${order_data['Amount3_Raw']:,.2f}'
         order_data['Description3'] = product_description[Unit_Number3]
@@ -111,7 +111,7 @@ def get_order_data(invoice_num, filename, directory = directory):
 
     if Unit_Number4 != None:
         order_data['Price4'] = (product_prices[Unit_Number4])
-        order_data['Quantity4'] = selected_sheet['C28'].value
+        order_data['Quantity4'] = str(selected_sheet['C28'].value)
         order_data['Amount4_Raw'] = order_data['Price4'] * order_data['Quantity4']
         order_data['Amount4'] =  f'${order_data['Amount4_Raw']:,.2f}'
         order_data['Description4'] = product_description[Unit_Number4] 
@@ -131,9 +131,10 @@ def create_invoice(invoice_num, order_data = order_data, directory = directory):
 
    # INSERT ANSWER FOR QUESTION 5 HERE
 gmail_password_path = select_file('Please select the gmail password file')
+Gmail_input = single_input("Please input your gmail username")
     
 def send_email(invoice_num, name = name, email = email, date = date):
-    gmail_user = "tcalton12@gmail.com"
+    gmail_user = Gmail_input
     gmail_password = open(gmail_password_path).read()
 
 
