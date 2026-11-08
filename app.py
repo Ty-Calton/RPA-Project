@@ -130,9 +130,9 @@ def create_invoice(invoice_num, order_data = order_data, directory = directory):
 
 
    # INSERT ANSWER FOR QUESTION 5 HERE
-    gmail_password_path = select_file('Please select the gmail password file')
+gmail_password_path = select_file('Please select the gmail password file')
     
-    def send_email(invoice_num, name = name, email = email, date = date):
+def send_email(invoice_num, name = name, email = email, date = date):
     gmail_user = "tcalton12@gmail.com"
     gmail_password = open(gmail_password_path).read()
 
